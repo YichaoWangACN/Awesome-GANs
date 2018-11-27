@@ -26,16 +26,19 @@
 * Tanh as the last layer of the generator output
 
 2. Use a spherical Z
-* Sample from a gaussian distribution instead of Uniform distribution
+* Sample from a gaussian distribution instead of Uniform distribution: 'np.random.normal'
 
 3. Use Soft and Noisy Labels
 * Label Smoothing
+
+4. Avoid Sparse Gradients
+* Use Leaky Relu in both D and G
 
 ## Tensorboard
 
 ![result](./dcgan_tb.png)
 
-> Elapsed Time : 3h 5m 32s with ``GTX 1060 6GB x 1``
+> Elapsed Time : ?h ?m ?s with ``todo``
 
 ## Result
 

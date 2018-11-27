@@ -59,15 +59,13 @@ def main():
         ds = DataSet(height=64,
                      width=64,
                      channel=3,
-                     ds_image_path="D:\\DataSet/CelebA/CelebA-64.h5",
-                     ds_label_path="D:\\DataSet/CelebA/Anno/list_attr_celeba.txt",
-                     # ds_image_path="D:\\DataSet/CelebA/Img/img_align_celeba/",
+                     ds_image_path="./DataSet/CelebA/CelebA-64.h5",
+                     ds_label_path="./DataSet/CelebA/Anno/list_attr_celeba.txt",
                      ds_type="CelebA",
                      use_save=False,
-                     save_file_name="D:\\DataSet/CelebA/CelebA-64.h5",
+                     save_file_name="./DataSet/CelebA/CelebA-64.h5",
                      save_type="to_h5",
                      use_img_scale=False,
-                     # img_scale="-1,1"
                      )
 
         # saving sample images
@@ -89,6 +87,7 @@ def main():
             for batch_x in ds_iter.iterate():
                 batch_x = np.reshape(iu.transform(batch_x, inv_type='127'),
                                      (model.batch_size, model.height, model.width, model.channel))
+                # sample from gaussian distribution
                 batch_z = np.random.normal(-1., 1., [model.batch_size, model.z_dim]).astype(np.float32)
 
                 # Update D network
